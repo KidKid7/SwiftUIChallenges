@@ -66,14 +66,15 @@ struct WeSplit: View {
                             Text("Total")
                             Spacer()
                             Text(total, format: format)
-                                .foregroundColor(Color(.gray))
+                                // Tenary operator: conditional modifier
+                                .foregroundColor(tip == 0 ? .red : .gray)
                         }
                         
                         HStack {
                             Text("Per person")
                             Spacer()
                             Text(totalPerPerson, format: format)
-                                .foregroundColor(Color(.gray))
+                                .foregroundColor(.gray)
                         }
                     }
                 }
