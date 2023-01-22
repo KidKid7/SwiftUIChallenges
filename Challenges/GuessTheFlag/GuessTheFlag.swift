@@ -46,9 +46,7 @@ struct GuessTheFlag: View {
                             Button {
                                 flagTapped(index: index)
                             } label: {
-                                Image(countries[index].lowercased())
-                                    .clipShape(Capsule())
-                                    .shadow(color: .black, radius: 5)
+                                FlagImage(name: countries[index])
                             }
                         }
                     }

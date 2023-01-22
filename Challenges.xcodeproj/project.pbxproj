@@ -13,6 +13,8 @@
 		843B5532297A864500149890 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843B5531297A864500149890 /* Preview Assets.xcassets */; };
 		843B553C297A895700149890 /* WeSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B553B297A895700149890 /* WeSplit.swift */; };
 		843B553F297B61D700149890 /* GuessTheFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B553E297B61D700149890 /* GuessTheFlag.swift */; };
+		843B5545297D272100149890 /* FlagImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5544297D272100149890 /* FlagImage.swift */; };
+		843B5548297D276C00149890 /* FlagModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5547297D276C00149890 /* FlagModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		843B5531297A864500149890 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		843B553B297A895700149890 /* WeSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplit.swift; sourceTree = "<group>"; };
 		843B553E297B61D700149890 /* GuessTheFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlag.swift; sourceTree = "<group>"; };
+		843B5544297D272100149890 /* FlagImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
+		843B5547297D276C00149890 /* FlagModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +88,19 @@
 		843B553D297B61B200149890 /* GuessTheFlag */ = {
 			isa = PBXGroup;
 			children = (
+				843B5546297D275C00149890 /* Modifier */,
 				843B553E297B61D700149890 /* GuessTheFlag.swift */,
+				843B5544297D272100149890 /* FlagImage.swift */,
 			);
 			path = GuessTheFlag;
+			sourceTree = "<group>";
+		};
+		843B5546297D275C00149890 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				843B5547297D276C00149890 /* FlagModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,10 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843B5545297D272100149890 /* FlagImage.swift in Sources */,
 				843B552D297A864400149890 /* ContentView.swift in Sources */,
 				843B553C297A895700149890 /* WeSplit.swift in Sources */,
 				843B553F297B61D700149890 /* GuessTheFlag.swift in Sources */,
 				843B552B297A864400149890 /* ChallengesApp.swift in Sources */,
+				843B5548297D276C00149890 /* FlagModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
