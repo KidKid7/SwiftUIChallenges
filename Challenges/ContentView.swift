@@ -19,6 +19,10 @@ struct ContentView: View {
                     NavigationLink("GuessTheFlag") {
                         GuessTheFlag()
                     }
+                    
+                    NavigationLink("ViewsAndModifiers") {
+                        ViewsAndModifiers()
+                    }
                 }
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
             }
