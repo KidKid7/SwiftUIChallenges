@@ -29,6 +29,7 @@
 		843B5541297CCB9400149890 /* ViewsAndModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsAndModifiers.swift; sourceTree = "<group>"; };
 		843B5544297D272100149890 /* FlagImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
 		843B5547297D276C00149890 /* FlagModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagModifier.swift; sourceTree = "<group>"; };
+		843B5549297DD41600149890 /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				843B552C297A864400149890 /* ContentView.swift */,
 				843B552E297A864500149890 /* Assets.xcassets */,
 				843B5530297A864500149890 /* Preview Content */,
+				843B5549297DD41600149890 /* Note.md */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
