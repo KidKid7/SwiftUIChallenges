@@ -55,7 +55,8 @@ extension View {
 struct TitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding(30)
+            .frame(maxWidth: 100)
+            .padding(20)
             .font(.caption)
             .foregroundColor(.white)
             .background(.purple)
@@ -96,28 +97,30 @@ struct ViewsAndModifiers: View {
     }
     
     var body: some View {
-        VStack {
-            builderView
-            HStack(spacing: 0) {
-                Text("Custom")
-                    .modifier(TitleModifier())
-                Text("Modifier")
-                    .titleStyle()
-            }
-            
-            CustomContainer(row: 3, col: 3) { r, c in
-                VStack {
-                    Text("Cell")
-                    Text("\(r)\(c)")
+        List {
+            VStack {
+                builderView
+                HStack(spacing: 0) {
+                    Text("Custom")
+                        .modifier(TitleModifier())
+                    Text("Modifier")
+                        .titleStyle()
                 }
-                .titleStyle()
+                
+                CustomContainer(row: 3, col: 3) { r, c in
+                    VStack {
+                        Text("Cell")
+                        Text("\(r)\(c)")
+                    }
+                    .titleStyle()
+                }
+                // foregroundColor: environment modifiers
+                // Local modifiers always override environment modifiers from the parent.
+                .foregroundColor(.yellow)
+                .padding(40)
+                .watterMarked(text: "custom view")
+                .background(.black)
             }
-            // foregroundColor: environment modifiers
-            // Local modifiers always override environment modifiers from the parent.
-            .foregroundColor(.yellow)
-            .padding(40)
-            .watterMarked(text: "custom view")
-            .background(.black)
         }
     }
 }
