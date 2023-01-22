@@ -15,6 +15,10 @@ struct ContentView: View {
                     NavigationLink("WeSplit") {
                         WeSplit()
                     }
+                    
+                    NavigationLink("GuessTheFlag") {
+                        GuessTheFlag()
+                    }
                 }
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
             }

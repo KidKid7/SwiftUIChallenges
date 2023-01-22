@@ -12,6 +12,7 @@
 		843B552F297A864500149890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843B552E297A864500149890 /* Assets.xcassets */; };
 		843B5532297A864500149890 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843B5531297A864500149890 /* Preview Assets.xcassets */; };
 		843B553C297A895700149890 /* WeSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B553B297A895700149890 /* WeSplit.swift */; };
+		843B553F297B61D700149890 /* GuessTheFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B553E297B61D700149890 /* GuessTheFlag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		843B552E297A864500149890 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843B5531297A864500149890 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		843B553B297A895700149890 /* WeSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeSplit.swift; sourceTree = "<group>"; };
+		843B553E297B61D700149890 /* GuessTheFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		843B5529297A864400149890 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				843B553D297B61B200149890 /* GuessTheFlag */,
 				843B5538297A870300149890 /* WeSplit */,
 				843B552A297A864400149890 /* ChallengesApp.swift */,
 				843B552C297A864400149890 /* ContentView.swift */,
@@ -76,6 +79,14 @@
 				843B553B297A895700149890 /* WeSplit.swift */,
 			);
 			path = WeSplit;
+			sourceTree = "<group>";
+		};
+		843B553D297B61B200149890 /* GuessTheFlag */ = {
+			isa = PBXGroup;
+			children = (
+				843B553E297B61D700149890 /* GuessTheFlag.swift */,
+			);
+			path = GuessTheFlag;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			files = (
 				843B552D297A864400149890 /* ContentView.swift in Sources */,
 				843B553C297A895700149890 /* WeSplit.swift in Sources */,
+				843B553F297B61D700149890 /* GuessTheFlag.swift in Sources */,
 				843B552B297A864400149890 /* ChallengesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
