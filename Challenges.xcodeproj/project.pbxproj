@@ -16,6 +16,8 @@
 		843B5542297CCB9400149890 /* ViewsAndModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5541297CCB9400149890 /* ViewsAndModifiers.swift */; };
 		843B5545297D272100149890 /* FlagImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5544297D272100149890 /* FlagImage.swift */; };
 		843B5548297D276C00149890 /* FlagModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5547297D276C00149890 /* FlagModifier.swift */; };
+		843B554D297DD88700149890 /* BetterRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B554C297DD88700149890 /* BetterRest.swift */; };
+		843B5554297E542500149890 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		843B5544297D272100149890 /* FlagImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
 		843B5547297D276C00149890 /* FlagModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagModifier.swift; sourceTree = "<group>"; };
 		843B5549297DD41600149890 /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
+		843B554C297DD88700149890 /* BetterRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterRest.swift; sourceTree = "<group>"; };
+		843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 		843B5529297A864400149890 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				843B554B297DD87D00149890 /* BetterRest */,
 				843B5540297CCB8800149890 /* ViewsAndModifiers */,
 				843B553D297B61B200149890 /* GuessTheFlag */,
 				843B5538297A870300149890 /* WeSplit */,
@@ -114,6 +119,15 @@
 				843B5547297D276C00149890 /* FlagModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		843B554B297DD87D00149890 /* BetterRest */ = {
+			isa = PBXGroup;
+			children = (
+				843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */,
+				843B554C297DD88700149890 /* BetterRest.swift */,
+			);
+			path = BetterRest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843B5554297E542500149890 /* SleepCalculator.mlmodel in Sources */,
 				843B5542297CCB9400149890 /* ViewsAndModifiers.swift in Sources */,
 				843B5545297D272100149890 /* FlagImage.swift in Sources */,
 				843B552D297A864400149890 /* ContentView.swift in Sources */,
@@ -193,6 +208,7 @@
 				843B553F297B61D700149890 /* GuessTheFlag.swift in Sources */,
 				843B552B297A864400149890 /* ChallengesApp.swift in Sources */,
 				843B5548297D276C00149890 /* FlagModifier.swift in Sources */,
+				843B554D297DD88700149890 /* BetterRest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

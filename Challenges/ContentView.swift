@@ -23,7 +23,12 @@ struct ContentView: View {
                     NavigationLink("ViewsAndModifiers") {
                         ViewsAndModifiers()
                     }
+                    
+                    NavigationLink("BetterRest") {
+                        BetterRest()
+                    }
                 }
+                .font(.subheadline)
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
             }
             .navigationTitle("Challeges")
