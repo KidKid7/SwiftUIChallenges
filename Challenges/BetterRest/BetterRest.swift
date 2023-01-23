@@ -18,6 +18,7 @@ struct BetterRest: View {
     @State private var alertMessage = ""
     
     private static var defaultWakeup: Date {
+        // Or place this in OnAppear
         var component = DateComponents()
         component.hour = 8
         component.minute = 0
@@ -25,52 +26,7 @@ struct BetterRest: View {
         return Calendar.current.date(from: component) ?? Date.now
     }
     
-    var body: some View {
-        ZStack {
-            Color(uiColor: .systemGroupedBackground)
-                .ignoresSafeArea()
-        
-            Form {
-                VStack {
-                    Text("When do you want to wake up?")
-                        .font(.headline)
-                    DatePicker("Select time to wake up",
-                               selection: $wakeupTime,
-                               displayedComponents: .hourAndMinute)
-                    .labelsHidden()
-                }
-                .applyBackground()
-                
-                VStack {
-                    Text("Desired amount of sleep")
-                        .font(.headline)
-                    Stepper("\(desiredTime.formatted()) hours", value: $desiredTime, in: 4...12, step: 0.25)
-                        .padding(.horizontal, 20)
-                }
-                .applyBackground()
-                
-                VStack {
-                    Text("Desired coffee intake")
-                        .font(.headline)
-                    Stepper("\(coffeeIntake) \(coffeeIntake == 1 ? "cup" : "cups")", value: $coffeeIntake, in: 1...10, step: 1)
-                        .padding(.horizontal, 20)
-                }
-                .applyBackground()
-            }
-            .padding(EdgeInsets(top: 15, leading: 20, bottom: 0, trailing: 20))
-        }
-        .alert(alertTitle, isPresented: $showingAlert) {
-            Button("OK") { }
-        } message: {
-            Text(alertMessage)
-        }
-        .navigationTitle("BetterRest")
-        .toolbar {
-            Button("Calculate", action: calculateBedTime)
-        }
-    }
-    
-    func calculateBedTime() {
+    var idealBedTime: Date? {
         do {
             
             // Currently below warning is showing up but it works correctly.
@@ -85,18 +41,67 @@ struct BetterRest: View {
             let prediction = try model.prediction(wake: Double(hours + minutes),
                                                   estimatedSleep: Double(desiredTime),
                                                   coffee: Double(coffeeIntake))
-            
-            let timeToSleep = wakeupTime - prediction.actualSleep
-            
-            alertTitle = "Your ideal bedtime is…"
-            alertMessage = timeToSleep.formatted(date: .omitted, time: .shortened)
+            return wakeupTime - prediction.actualSleep
             
         } catch {
             alertTitle = "Error!"
             alertMessage = "Sorry, there was a problem calculating your bedtime."
+            showingAlert = true
+            
+            return nil
         }
+    }
+    
+    var body: some View {
+        ZStack {
+            Color(uiColor: .systemGroupedBackground)
+                .ignoresSafeArea()
         
-        showingAlert = true
+            VStack {
+                VStack {
+                    Text("When do you want to wake up?")
+                        .font(.headline)
+                    DatePicker("Select time to wake up",
+                               selection: $wakeupTime,
+                               displayedComponents: .hourAndMinute)
+                    .labelsHidden()
+                }
+                .applyBgStyle()
+                
+                VStack {
+                    Text("Desired amount of sleep")
+                        .font(.headline)
+                    Stepper("\(desiredTime.formatted()) hours", value: $desiredTime, in: 4...12, step: 0.25)
+                        .padding(.horizontal, 20)
+                }
+                .applyBgStyle()
+                
+                VStack {
+                    Text("Desired coffee intake")
+                        .font(.headline)
+                    Stepper("\(coffeeIntake) \(coffeeIntake == 1 ? "cup" : "cups")", value: $coffeeIntake, in: 1...10, step: 1)
+                        .padding(.horizontal, 20)
+                }
+                .applyBgStyle()
+                
+                VStack {
+                    Text("Your ideal bedtime is")
+                    Text(idealBedTime?.formatted(date: .omitted, time: .shortened) ?? "")
+                        .font(.largeTitle.bold())
+                }
+                .padding(.vertical, 30)
+                .opacity(idealBedTime == nil ? 0 : 1)
+                
+                Spacer()
+            }
+            .padding(EdgeInsets(top: 15, leading: 20, bottom: 0, trailing: 20))
+        }
+        .alert(alertTitle, isPresented: $showingAlert) {
+            Button("OK") { }
+        } message: {
+            Text(alertMessage)
+        }
+        .navigationTitle("BetterRest")
     }
 }
 
@@ -117,7 +122,7 @@ private struct VStackModifier : ViewModifier {
 }
 
 fileprivate extension View {
-    func applyBackground() -> some View {
+    func applyBgStyle() -> some View {
         modifier(VStackModifier())
     }
 }
