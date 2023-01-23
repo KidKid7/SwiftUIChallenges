@@ -58,7 +58,7 @@ struct BetterRest: View {
                 .ignoresSafeArea()
             
             List {
-                VStack {
+                VStack(spacing: 50) {
                     VStack {
                         Text("When do you want to wake up?")
                             .font(.headline)
@@ -67,7 +67,6 @@ struct BetterRest: View {
                                    displayedComponents: .hourAndMinute)
                         .labelsHidden()
                     }
-                    .applyBgStyle()
                     
                     VStack {
                         Text("Desired amount of sleep")
@@ -75,7 +74,6 @@ struct BetterRest: View {
                         Stepper("\(desiredTime.formatted()) hours", value: $desiredTime, in: 4...12, step: 0.25)
                             .padding(.horizontal, 20)
                     }
-                    .applyBgStyle()
                     
                     VStack {
                         Text("Desired coffee intake")
@@ -83,19 +81,16 @@ struct BetterRest: View {
                         Stepper("\(coffeeIntake) \(coffeeIntake == 1 ? "cup" : "cups")", value: $coffeeIntake, in: 1...10, step: 1)
                             .padding(.horizontal, 20)
                     }
-                    .applyBgStyle()
                     
                     VStack {
                         Text("Your ideal bedtime is")
                         Text(idealBedTime?.formatted(date: .omitted, time: .shortened) ?? "")
                             .font(.largeTitle.bold())
                     }
-                    .padding(.vertical, 30)
                     .opacity(idealBedTime == nil ? 0 : 1)
-                    
-                    Spacer()
                 }
-                .padding(EdgeInsets(top: 15, leading: 20, bottom: 0, trailing: 20))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
             }
             .alert(alertTitle, isPresented: $showingAlert) {
                 Button("OK") { }
@@ -110,21 +105,5 @@ struct BetterRest: View {
 struct BetterRest_Previews: PreviewProvider {
     static var previews: some View {
         BetterRest()
-    }
-}
-
-private struct VStackModifier : ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-    }
-}
-
-fileprivate extension View {
-    func applyBgStyle() -> some View {
-        modifier(VStackModifier())
     }
 }
