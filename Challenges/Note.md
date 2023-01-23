@@ -7,6 +7,8 @@ Form
 
 Stepper
 DatePicker
+Create ML: framework which trains machine learning models from CSV files.
+Core ML: Apple has said predictions might fail, perhaps if we provide invalid input.
 
 TableView
 -> List
