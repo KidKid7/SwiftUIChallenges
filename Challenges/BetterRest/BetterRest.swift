@@ -56,52 +56,54 @@ struct BetterRest: View {
         ZStack {
             Color(uiColor: .systemGroupedBackground)
                 .ignoresSafeArea()
-        
-            VStack {
+            
+            List {
                 VStack {
-                    Text("When do you want to wake up?")
-                        .font(.headline)
-                    DatePicker("Select time to wake up",
-                               selection: $wakeupTime,
-                               displayedComponents: .hourAndMinute)
-                    .labelsHidden()
+                    VStack {
+                        Text("When do you want to wake up?")
+                            .font(.headline)
+                        DatePicker("Select time to wake up",
+                                   selection: $wakeupTime,
+                                   displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                    }
+                    .applyBgStyle()
+                    
+                    VStack {
+                        Text("Desired amount of sleep")
+                            .font(.headline)
+                        Stepper("\(desiredTime.formatted()) hours", value: $desiredTime, in: 4...12, step: 0.25)
+                            .padding(.horizontal, 20)
+                    }
+                    .applyBgStyle()
+                    
+                    VStack {
+                        Text("Desired coffee intake")
+                            .font(.headline)
+                        Stepper("\(coffeeIntake) \(coffeeIntake == 1 ? "cup" : "cups")", value: $coffeeIntake, in: 1...10, step: 1)
+                            .padding(.horizontal, 20)
+                    }
+                    .applyBgStyle()
+                    
+                    VStack {
+                        Text("Your ideal bedtime is")
+                        Text(idealBedTime?.formatted(date: .omitted, time: .shortened) ?? "")
+                            .font(.largeTitle.bold())
+                    }
+                    .padding(.vertical, 30)
+                    .opacity(idealBedTime == nil ? 0 : 1)
+                    
+                    Spacer()
                 }
-                .applyBgStyle()
-                
-                VStack {
-                    Text("Desired amount of sleep")
-                        .font(.headline)
-                    Stepper("\(desiredTime.formatted()) hours", value: $desiredTime, in: 4...12, step: 0.25)
-                        .padding(.horizontal, 20)
-                }
-                .applyBgStyle()
-                
-                VStack {
-                    Text("Desired coffee intake")
-                        .font(.headline)
-                    Stepper("\(coffeeIntake) \(coffeeIntake == 1 ? "cup" : "cups")", value: $coffeeIntake, in: 1...10, step: 1)
-                        .padding(.horizontal, 20)
-                }
-                .applyBgStyle()
-                
-                VStack {
-                    Text("Your ideal bedtime is")
-                    Text(idealBedTime?.formatted(date: .omitted, time: .shortened) ?? "")
-                        .font(.largeTitle.bold())
-                }
-                .padding(.vertical, 30)
-                .opacity(idealBedTime == nil ? 0 : 1)
-                
-                Spacer()
+                .padding(EdgeInsets(top: 15, leading: 20, bottom: 0, trailing: 20))
             }
-            .padding(EdgeInsets(top: 15, leading: 20, bottom: 0, trailing: 20))
+            .alert(alertTitle, isPresented: $showingAlert) {
+                Button("OK") { }
+            } message: {
+                Text(alertMessage)
+            }
+            .navigationTitle("BetterRest")
         }
-        .alert(alertTitle, isPresented: $showingAlert) {
-            Button("OK") { }
-        } message: {
-            Text(alertMessage)
-        }
-        .navigationTitle("BetterRest")
     }
 }
 
