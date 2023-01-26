@@ -1,17 +1,12 @@
 #  SwiftUI
 
-Form
+Form : for user input
 - Picker
 - TextField
 - Segment
 
-Stepper
-DatePicker
-Create ML: framework which trains machine learning models from CSV files.
-Core ML: Apple has said predictions might fail, perhaps if we provide invalid input.
-
 TableView
--> List
+-> List : working with tables of data, and strings
 -> Section
 -> ForEach
 -> Group
@@ -36,6 +31,8 @@ UIStackView
 -> ZStack
 
 
+------------------------------------------------------------------------
+
 @StateObject: keeps object alive throughout the life of app.
 @EnvironmentObject: share data accross many places.
 
@@ -55,4 +52,15 @@ View Composition
 Custom modifier
 Custom container
 
+------------------------------------------------------------------------
 
+Stepper
+DatePicker
+Create ML: framework which trains machine learning models from CSV files.
+Core ML: Apple has said predictions might fail, perhaps if we provide invalid input.
+
+------------------------------------------------------------------------
+
+Bundle: allows the system to store all the files for a single app in one place - the binary code (the actual compiled Swift stuff we wrote). Multiple bundles in a single app, allowing you to write things like Siri extensions, iMessage apps, widgets, and more, all inside a single iOS app bundle. 
+UITextChecker: uses the built-in system dictionary.
+onSubmit(): presses return on the keyboard

@@ -18,6 +18,8 @@
 		843B5548297D276C00149890 /* FlagModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5547297D276C00149890 /* FlagModifier.swift */; };
 		843B554D297DD88700149890 /* BetterRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B554C297DD88700149890 /* BetterRest.swift */; };
 		843B5554297E542500149890 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */; };
+		843B5557297E75AD00149890 /* WordScramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5556297E75AD00149890 /* WordScramble.swift */; };
+		843B55592982FB6300149890 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843B55582982FB6300149890 /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		843B5549297DD41600149890 /* Note.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Note.md; sourceTree = "<group>"; };
 		843B554C297DD88700149890 /* BetterRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterRest.swift; sourceTree = "<group>"; };
 		843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
+		843B5556297E75AD00149890 /* WordScramble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScramble.swift; sourceTree = "<group>"; };
+		843B55582982FB6300149890 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		843B5529297A864400149890 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				843B5555297E75A400149890 /* WordScramble */,
 				843B554B297DD87D00149890 /* BetterRest */,
 				843B5540297CCB8800149890 /* ViewsAndModifiers */,
 				843B553D297B61B200149890 /* GuessTheFlag */,
@@ -130,6 +135,15 @@
 			path = BetterRest;
 			sourceTree = "<group>";
 		};
+		843B5555297E75A400149890 /* WordScramble */ = {
+			isa = PBXGroup;
+			children = (
+				843B55582982FB6300149890 /* start.txt */,
+				843B5556297E75AD00149890 /* WordScramble.swift */,
+			);
+			path = WordScramble;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843B5532297A864500149890 /* Preview Assets.xcassets in Resources */,
+				843B55592982FB6300149890 /* start.txt in Resources */,
 				843B552F297A864500149890 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843B5557297E75AD00149890 /* WordScramble.swift in Sources */,
 				843B5554297E542500149890 /* SleepCalculator.mlmodel in Sources */,
 				843B5542297CCB9400149890 /* ViewsAndModifiers.swift in Sources */,
 				843B5545297D272100149890 /* FlagImage.swift in Sources */,

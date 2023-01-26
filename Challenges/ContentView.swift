@@ -27,6 +27,10 @@ struct ContentView: View {
                     NavigationLink("BetterRest") {
                         BetterRest()
                     }
+                    
+                    NavigationLink("WordScramble") {
+                        WordScramble()
+                    }
                 }
                 .font(.subheadline)
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
