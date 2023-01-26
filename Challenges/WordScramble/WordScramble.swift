@@ -16,6 +16,19 @@ struct WordScramble: View {
     @State private var message = ""
     @State private var showMessage = false
     
+    @FocusState private var foucsTextField: Bool
+    @State private var score: Int = 0
+    
+    let words: [String] = {
+        if let wordURL = Bundle.main.url(forResource: "start", withExtension: "txt"),
+           let content = try? String(contentsOf: wordURL) {
+            let words = content.components(separatedBy: "\n")
+            return words
+        }
+
+        fatalError("Could not load file")
+    }()
+    
     var body: some View {
         NavigationStack {
             List {
@@ -23,6 +36,7 @@ struct WordScramble: View {
                     TextField("Enter your word", text: $newWord)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled(true)
+                        .focused($foucsTextField)
                 }
                 
                 Section {
@@ -37,24 +51,42 @@ struct WordScramble: View {
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
+            .toolbar(content: {
+                Button("Start Game", action: startGame)
+            })
             .alert(title, isPresented: $showMessage) {
                 Button("OK") { }
             } message: {
                 Text(message)
+            }
+            
+            VStack {
+                Text("Your Score is ")
+                Text("\(score)")
+                    .font(.largeTitle.bold())
             }
         }
     }
     
     func addNewWord() {
         let input = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-        guard input.count > 0 else {
-            newWord = ""
+        guard input.count > 3 else {
+            title = "Word is too short"
+            message = "Please enter the word which contains at least 3 characters."
+            showMessage = true
             return
         }
         
         guard !alreadyUsed(input) else {
             title = "Word is already used."
             message = "Please find another word."
+            showMessage = true
+            return
+        }
+        
+        guard !isStartOfRoot(input) else {
+            title = "Word is not allowed."
+            message = "You cannot use word which is the prefix of \(rootWord)."
             showMessage = true
             return
         }
@@ -77,22 +109,24 @@ struct WordScramble: View {
             wordList.insert(input, at: 0)
         }
         
+        score += input.count
         newWord = ""
     }
     
     func startGame() {
-        if let wordURL = Bundle.main.url(forResource: "start", withExtension: "txt"),
-           let content = try? String(contentsOf: wordURL) {
-            let words = content.components(separatedBy: "\n")
-            rootWord = words.randomElement() ?? ""
-            return
-        }
-        
-        fatalError("Could not load file")
+        rootWord = words.randomElement() ?? ""
+        wordList = []
+        score = 0
+        newWord = ""
+        foucsTextField = true
     }
     
     func alreadyUsed(_ word: String) -> Bool {
         return wordList.contains(word)
+    }
+    
+    func isStartOfRoot(_ word: String) -> Bool {
+        return rootWord.starts(with: word)
     }
     
     func isAllowed(_ word: String) -> Bool {
