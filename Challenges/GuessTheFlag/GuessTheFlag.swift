@@ -18,6 +18,8 @@ struct GuessTheFlag: View {
     @State private var randomFlag = Int.random(in: 0..<3)
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
     
+    @State private var selectedIndex = -1
+    
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -44,10 +46,27 @@ struct GuessTheFlag: View {
                     VStack(spacing: 25) {
                         ForEach(0..<3) { index in
                             Button {
-                                flagTapped(index: index)
+                                selectedIndex = index
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    flagTapped(index: index)
+                                }
                             } label: {
                                 FlagImage(name: countries[index])
                             }
+                            .opacity(selectedIndex == index || selectedIndex == -1
+                                     ? 1
+                                     : 0.75
+                            )
+                            .scaleEffect(selectedIndex == index || selectedIndex == -1
+                                         ? 1
+                                         : 0.8
+                            )
+                            .rotation3DEffect(Angle(degrees: selectedIndex > -1 ? 360 : 0), axis: (x: 0, y: 1, z: 1))
+                            .animation(index == selectedIndex
+                                       ? .interpolatingSpring(stiffness: 30, damping: 10).repeatCount(2, autoreverses: true)
+                                       : nil
+                                , value: selectedIndex > -1 ? 360 : 0)
+                            .disabled(selectedIndex > -1)
                         }
                     }
                 }
@@ -100,9 +119,12 @@ struct GuessTheFlag: View {
     func retry() {
         countries.shuffle()
         randomFlag = Int.random(in: 0..<3)
+        selectedIndex = -1
     }
     
     func restart() {
+        selectedIndex = -1
+        
         nbOfTry = 0
         score = 0
         retry()
