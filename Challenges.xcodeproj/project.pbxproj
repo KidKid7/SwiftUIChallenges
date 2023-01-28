@@ -20,6 +20,7 @@
 		843B5554297E542500149890 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */; };
 		843B5557297E75AD00149890 /* WordScramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B5556297E75AD00149890 /* WordScramble.swift */; };
 		843B55592982FB6300149890 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843B55582982FB6300149890 /* start.txt */; };
+		843B555D29833ED000149890 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B555C29833ED000149890 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		843B5551297E3FDE00149890 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 		843B5556297E75AD00149890 /* WordScramble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScramble.swift; sourceTree = "<group>"; };
 		843B55582982FB6300149890 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		843B555C29833ED000149890 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		843B5529297A864400149890 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				843B555B29833EC300149890 /* Animation */,
 				843B5555297E75A400149890 /* WordScramble */,
 				843B554B297DD87D00149890 /* BetterRest */,
 				843B5540297CCB8800149890 /* ViewsAndModifiers */,
@@ -144,6 +147,14 @@
 			path = WordScramble;
 			sourceTree = "<group>";
 		};
+		843B555B29833EC300149890 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				843B555C29833ED000149890 /* Animation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843B555D29833ED000149890 /* Animation.swift in Sources */,
 				843B5557297E75AD00149890 /* WordScramble.swift in Sources */,
 				843B5554297E542500149890 /* SleepCalculator.mlmodel in Sources */,
 				843B5542297CCB9400149890 /* ViewsAndModifiers.swift in Sources */,

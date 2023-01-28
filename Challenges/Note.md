@@ -64,3 +64,10 @@ Core ML: Apple has said predictions might fail, perhaps if we provide invalid in
 Bundle: allows the system to store all the files for a single app in one place - the binary code (the actual compiled Swift stuff we wrote). Multiple bundles in a single app, allowing you to write things like Siri extensions, iMessage apps, widgets, and more, all inside a single iOS app bundle. 
 UITextChecker: uses the built-in system dictionary.
 onSubmit(): presses return on the keyboard
+
+------------------------------------------------------------------------
+
+scaleEffect
+blur
+animation
+transition

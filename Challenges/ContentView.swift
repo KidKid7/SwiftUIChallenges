@@ -7,29 +7,51 @@
 
 import SwiftUI
 
+
+struct CustomNavigationLink<Destination: View> : View {
+    let title: String
+    let index: Int
+    let destination: () -> Destination
+    
+    var body: some View {
+        NavigationLink {
+            destination()
+        } label: {
+            HStack {
+                Image(systemName: "\(index).circle")
+                Text(title)
+            }
+        }
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack{
                 List {
-                    NavigationLink("WeSplit") {
+                    CustomNavigationLink(title: "WeSplit", index: 1) {
                         WeSplit()
                     }
                     
-                    NavigationLink("GuessTheFlag") {
+                    CustomNavigationLink(title: "GuessTheFlag", index: 2) {
                         GuessTheFlag()
                     }
                     
-                    NavigationLink("ViewsAndModifiers") {
+                    CustomNavigationLink(title: "ViewsAndModifiers", index: 3) {
                         ViewsAndModifiers()
                     }
                     
-                    NavigationLink("BetterRest") {
+                    CustomNavigationLink(title: "BetterRest", index: 4) {
                         BetterRest()
                     }
                     
-                    NavigationLink("WordScramble") {
+                    CustomNavigationLink(title: "WordScramble", index: 5) {
                         WordScramble()
+                    }
+                    
+                    CustomNavigationLink(title: "Animation", index: 6) {
+                        Animation()
                     }
                 }
                 .font(.subheadline)
